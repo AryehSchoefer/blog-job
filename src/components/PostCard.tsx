@@ -22,7 +22,7 @@ export default function PostCard({
 }) {
   return (
     <Link href={`post/${postId}`}>
-      <Card w="3xl">
+      <Card maxW="3xl" minW="75%">
         <CardHeader>
           <Heading fontSize="2xl">{title}</Heading>
         </CardHeader>
