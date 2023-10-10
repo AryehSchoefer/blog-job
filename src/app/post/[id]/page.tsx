@@ -1,4 +1,5 @@
 import { fetchPostById } from "@/lib/fetchPosts";
+import { capitalizeFirstLetter } from "@/lib/utils";
 import { Text, Flex, Stack, StackDivider, Button, Box } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -24,9 +25,11 @@ async function PostPage({ params }: { params: { id: string } }) {
           spacing="4"
         >
           <Text fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold">
-            {post.data.title}
+            {capitalizeFirstLetter(post.data.title)}
           </Text>
-          <Text fontSize={{ base: "xl", md: "2xl" }}>{post.data.body}</Text>
+          <Text fontSize={{ base: "xl", md: "2xl" }}>
+            {capitalizeFirstLetter(post.data.body)}
+          </Text>
         </Stack>
         <Box w={{ base: "90%", md: "75%" }}>
           <Link href="/">

@@ -1,3 +1,4 @@
+import { capitalizeFirstLetter } from "@/lib/utils";
 import {
   Box,
   Card,
@@ -24,12 +25,12 @@ export default function PostCard({
     <Link href={`post/${postId}`}>
       <Card maxW="3xl" minW="75%">
         <CardHeader>
-          <Heading fontSize="2xl">{title}</Heading>
+          <Heading fontSize="2xl">{capitalizeFirstLetter(title)}</Heading>
         </CardHeader>
         <CardBody>
           <Stack divider={<StackDivider />} spacing="4">
             <Box>
-              <Text>{body}</Text>
+              <Text>{capitalizeFirstLetter(body)}</Text>
             </Box>
             <Box>
               <Text fontSize="sm" color="blue.400" decoration="underline">
