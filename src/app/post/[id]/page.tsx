@@ -6,7 +6,7 @@ async function PostPage({ params }: { params: { id: string } }) {
   const post = await fetchPostById(params.id);
 
   if (!post) {
-    throw new Error(`Post with ID ${params.id} doesn't exist`);
+    throw new Error(`Post with ID ${params.id} does not exist`);
   }
 
   return (

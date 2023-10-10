@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import React from "react";
 
-export function PostCard({
+export default function PostCard({
   title,
   body,
   postId,

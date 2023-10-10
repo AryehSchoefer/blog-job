@@ -3,10 +3,14 @@
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { PostCard } from "./PostCard";
+import PostCard from "./PostCard";
 import { Post, fetchPosts } from "@/lib/fetchPosts";
 
-function InfiniteScrollPosts({ initialPosts }: { initialPosts: Post[] }) {
+export default function InfiniteScrollPosts({
+  initialPosts,
+}: {
+  initialPosts: Post[];
+}) {
   // state variables used for pagination logic
   const [posts, setPosts] = useState(initialPosts);
   const [page, setPage] = useState(1);
@@ -45,5 +49,3 @@ function InfiniteScrollPosts({ initialPosts }: { initialPosts: Post[] }) {
     </Flex>
   );
 }
-
-export default InfiniteScrollPosts;
