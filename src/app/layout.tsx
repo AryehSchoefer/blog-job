@@ -1,8 +1,9 @@
+import NavBar from "@/components/NavBar";
 import { Providers } from "@/components/Providers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "A Very Cool Blog 😎",
+  title: "🐝 Blog",
   description: "Technical Interview Use Case",
 };
 
@@ -14,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
