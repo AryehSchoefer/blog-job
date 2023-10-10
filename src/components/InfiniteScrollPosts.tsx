@@ -5,6 +5,7 @@ import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import PostCard from "./PostCard";
 import { Post, fetchPosts } from "@/lib/fetchPosts";
+import { createPreviewString } from "@/lib/utils";
 
 export default function InfiniteScrollPosts({
   initialPosts,
@@ -42,7 +43,11 @@ export default function InfiniteScrollPosts({
     <Flex direction="column" gap="10" align="center" pt="10" pb="10">
       {posts.map((post) => (
         <div key={post.id.toString()}>
-          <PostCard postId={post.id} title={post.title} body={post.body} />
+          <PostCard
+            postId={post.id}
+            title={post.title}
+            body={createPreviewString(post.body)}
+          />
         </div>
       ))}
       {page <= 10 && <Spinner h="10" w="10" ref={ref} />}
