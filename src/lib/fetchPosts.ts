@@ -20,7 +20,8 @@ export async function fetchPosts(start = 0, limit = 10) {
   );
   const maybePosts: unknown = await res.json();
 
-  // Validate if retrieved posts have the correct shape
+  // Validate if retrieved posts have the correct shape,
+  // if the shape is incorrect 'log' the error and return undefined
   const validatedPosts = postsSchema.safeParse(maybePosts);
   if (!validatedPosts.success) {
     console.error(validatedPosts.error);
@@ -35,7 +36,8 @@ export async function fetchPostById(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const maybePost: unknown = await res.json();
 
-  // Validate if retrieved post has the correct shape
+  // Validate if retrieved post has the correct shape,
+  // if the shape is incorrect 'log' the error and return undefined
   const validatedPost = postSchema.safeParse(maybePost);
   if (!validatedPost.success) {
     console.error(validatedPost.error);
